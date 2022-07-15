@@ -1,4 +1,4 @@
-package splitwise;
+package splitwise.model;
 
 import java.util.HashMap;
 import java.util.Map;

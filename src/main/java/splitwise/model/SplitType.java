@@ -1,4 +1,6 @@
-package splitwise;
+package splitwise.model;
+
+import splitwise.dao.IAmountCalculator;
 
 import java.util.List;
 import java.util.Map;
