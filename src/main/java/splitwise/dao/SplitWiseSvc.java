@@ -1,4 +1,8 @@
-package splitwise;
+package splitwise.dao;
+
+import splitwise.dao.ISplitWiseProcessor;
+import splitwise.model.SplitType;
+import splitwise.model.User;
 
 import java.util.*;
 
@@ -7,7 +11,7 @@ import java.util.*;
  */
 public class SplitWiseSvc implements ISplitWiseProcessor {
 
-	private final Map<String ,User> userMap;
+	private final Map<String , User> userMap;
 
 	public SplitWiseSvc() {
 		this.userMap = new HashMap<>();

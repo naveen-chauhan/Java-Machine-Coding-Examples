@@ -1,5 +1,7 @@
 package splitwise;
 
+import splitwise.dao.SplitWiseSvc;
+
 import java.util.Scanner;
 
 /**

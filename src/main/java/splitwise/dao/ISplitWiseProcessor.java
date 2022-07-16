@@ -1,4 +1,4 @@
-package splitwise;
+package splitwise.dao;
 
 /**
  * @author naveen.chauhan on 04/07/22
