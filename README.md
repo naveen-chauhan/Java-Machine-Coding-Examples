@@ -1,2 +1,5 @@
 # Java-Machine-Coding-Examples
-Various Maching Coding Practical Question and its Solutions
+
+Descriptions -
+
+Various Maching Coding Interview Questions with its Solutions
