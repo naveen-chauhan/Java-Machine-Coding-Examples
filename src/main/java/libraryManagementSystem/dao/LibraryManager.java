@@ -24,6 +24,7 @@ public class LibraryManager {
 		this.userManagementDepartment = new UserManagementDepartment();
 		this.bookToUserMap = new HashMap<>();
 		this.userIdToUserData = new HashMap<>();
+		System.out.println("Created library with "+ commands[1] + " racks");
 	}
 
 
@@ -59,15 +60,27 @@ public class LibraryManager {
 	}
 
 	private void dispenseBookToUser(String[] commands) {
-		BookCopy bookCopy = libraryBookStoreDepartment.searchAndGetByBookId(commands[1], library);
+		BookCopy bookCopy = null;
+		int j = 0;
+		for (j = 0; j < library.getRack().length; j++) {
+
+			if (library.getRack()[j] != null && library.getRack()[j].getBookId().equals(commands[1])) {
+				bookCopy = library.getRack()[j];
+			}
+		}
+
 		LibraryUser libraryUser;
 		if (!userIdToUserData.containsKey(commands[2])) {
 			libraryUser = new LibraryUser(commands[1]);
 		} else {
 			libraryUser = userIdToUserData.get(commands[2]);
 		}
+
 		libraryUser.getBookedCopyToDueDateMap().put(bookCopy.getBookCopyId(), new LibraryUser.BookOrderDetail(bookCopy, commands[3]));
+
 		bookToUserMap.put(bookCopy.getBookCopyId(), libraryUser);
 		userIdToUserData.put(libraryUser.getUserId(), libraryUser);
+
+		System.out.println("Borrowed Book from rack: "+ j);
 	}
 }

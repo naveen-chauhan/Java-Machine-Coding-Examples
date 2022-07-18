@@ -13,9 +13,10 @@ import java.util.List;
 public class LibraryBookStoreDepartment {
 	public void addBookToShelf(String[] commands, Library library) {
 		String bookId = commands[1];
-		String authorList = commands[2];
-		String publisherList = commands[3];
-		String[] bookCopyIdList = commands[4].split(",");
+		String title = commands[2];
+		String authorList = commands[3];
+		String publisherList = commands[4];
+		String[] bookCopyIdList = commands[5].split(",");
 
 		List<String> authors = new ArrayList<>();
 		List<String> publishers = new ArrayList<>();
@@ -27,7 +28,7 @@ public class LibraryBookStoreDepartment {
 		for (int i = 0; i < bookCopyIdList.length; i++) {
 			for (int j = 0; j < library.getRack().length; j++) {
 				if (library.getRack()[j] == null) {
-					BookCopy bookCopy = new BookCopy(bookCopyIdList[i], bookId, " ", authors, publishers);
+					BookCopy bookCopy = new BookCopy(bookCopyIdList[i], bookId, title, authors, publishers);
 					library.getRack()[j] = bookCopy;
 					bookedRackIds.add(j + 1);
 					break;
@@ -37,18 +38,17 @@ public class LibraryBookStoreDepartment {
 
 		if (bookedRackIds.size() < 1) {
 			System.out.println("Rack not available");
+			return;
 		}
 
-		for (int i = 0; i < bookCopyIdList.length; i++) {
-			System.out.println("Added Book to racks: ");
-			if (i + 1 < bookedRackIds.size()) {
-				System.out.print(bookedRackIds.get(i) + ", ");
-			}
-		}
+		System.out.println("Added Book to racks: " + bookedRackIds.toString()
+				.replace("[", "")
+				.replace("]", "")
+				.trim());
 
-		for (int i = 0; i < bookCopyIdList.length - bookedRackIds.size(); i++) {
+
+		if (bookCopyIdList.length - bookedRackIds.size() > 0) {
 			System.out.println("Rack not available");
-
 		}
 	}
 
@@ -81,8 +81,8 @@ public class LibraryBookStoreDepartment {
 	private void searchByBookId(String command, Library library) {
 		List<BookCopy> bookCopies = new ArrayList<>();
 		List<Integer> rackDetails = new ArrayList<>();
-		for (int j = 0; j < library.getRack().length; j++) {
 
+		for (int j = 0; j < library.getRack().length; j++) {
 			if (library.getRack()[j] != null && library.getRack()[j].getBookId().equals(command)) {
 				bookCopies.add(library.getRack()[j]);
 				rackDetails.add(j + 1);
@@ -90,16 +90,6 @@ public class LibraryBookStoreDepartment {
 		}
 
 		printBooks(bookCopies, rackDetails);
-	}
-
-	public BookCopy searchAndGetByBookId(String bookId, Library library) {
-		for (int j = 0; j < library.getRack().length; j++) {
-
-			if (library.getRack()[j] != null && library.getRack()[j].getBookId().equals(bookId)) {
-				return library.getRack()[j];
-			}
-		}
-		return null;
 	}
 
 	private void printBooks(List<BookCopy> bookCopies, List<Integer> rackDetails) {
@@ -111,7 +101,7 @@ public class LibraryBookStoreDepartment {
 					.trim() + " " + bookCopy.getPublishers().toString()
 					.replace("[", "")
 					.replace("]", "")
-					.trim() + rackDetails.get(rackCounter));
+					.trim() + " " + rackDetails.get(rackCounter));
 			rackCounter++;
 		}
 	}
@@ -124,7 +114,7 @@ public class LibraryBookStoreDepartment {
 				bookCopy = library.getRack()[i];
 				library.getRack()[i] = null;
 				isRemoved = true;
-				System.out.println("Removed book copy: " + bookCopyId + " from rack: " + i + 1);
+				System.out.println("Removed book copy: " + bookCopyId + " from rack: " + (i + 1));
 			}
 		}
 		if (!isRemoved) {
