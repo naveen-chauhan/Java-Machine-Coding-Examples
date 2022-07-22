@@ -1,6 +1,6 @@
-Design a cache library ‘uber-cache' using the basic data structures.
+Design a cache library cache using the basic data structures.
 
-Uber-Cache will be used by other components and applications (similar to any open source library you can download and use).
+Cache will be used by other components and applications (similar to any open source library you can download and use).
 
 Requirements are:
 
