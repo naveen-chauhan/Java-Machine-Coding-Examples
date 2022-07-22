@@ -5,9 +5,6 @@ import distributedqueue.models.DistributedQueue;
 import distributedqueue.models.Producer;
 import distributedqueue.models.Topic;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * @author naveen.chauhan on 20/07/22
  */

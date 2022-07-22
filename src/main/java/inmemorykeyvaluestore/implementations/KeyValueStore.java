@@ -25,7 +25,7 @@ public class KeyValueStore implements IKeyValueStore<String> {
 	}
 
 	@Override
-	public void put(String key, String value) {
+	public synchronized void put(String key, String value) {
 		HashMap<String, String> hashMap = JsonHelper.readTree(value);
 		keyValueStore.put(key, hashMap);
 	}
