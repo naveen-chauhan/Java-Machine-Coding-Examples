@@ -50,5 +50,4 @@ public class TruecallerGlobalDirectory {
 				.findAny()
 				.orElse("NO_ENTRY");
 	}
-
 }
