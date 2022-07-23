@@ -26,7 +26,7 @@ public class TruecallerUser {
 	private PremiumInfo userSubscriptionInfo;
 
 
-	public TruecallerUser(String name, String phoneNumber) {
+	private TruecallerUser(String name, String phoneNumber) {
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.blockedContactList = new ArrayList<>();
@@ -35,10 +35,8 @@ public class TruecallerUser {
 		this.userSubscriptionInfo = new PremiumInfo(DEFAULT_SUBSCRIPTION_NAME);
 	}
 
-	public TruecallerUser register(String name, String phoneNumber) {
+	public static TruecallerUser register(String name, String phoneNumber) {
 		//once it is register. Register in the GlobalDirectory as well.
-		System.out.println("User Registration Successfull !!");
-
 		return new TruecallerUser(name, phoneNumber);
 	}
 

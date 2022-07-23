@@ -21,6 +21,16 @@ public class GlobalSvc {
 		truecallerGlobalDirectory = new TruecallerGlobalDirectory();
 	}
 
+	public void registerNewUser(String name, String phoneNumber) {
+		TruecallerUser truecallerUser = TruecallerUser.register(name, phoneNumber);
+		truecallerUserMap.put(phoneNumber, truecallerUser);
+
+		//Register in the global Working Directory
+		truecallerGlobalDirectory.register(truecallerUser);
+
+		System.out.println("Successfully Registered the User");
+	}
+
 	void call(String fromNumber, String toNumber) {
 		//Identify calls
 		//Get the Called User
