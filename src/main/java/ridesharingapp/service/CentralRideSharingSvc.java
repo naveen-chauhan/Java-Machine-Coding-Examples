@@ -75,6 +75,7 @@ public class CentralRideSharingSvc {
 
 		if (isRideAlreadyOffered) {
 			System.out.println("Ride Already Offered !!");
+			return;
 		}
 
 		String originLocation = inputs[1].split("=")[1];
@@ -90,7 +91,7 @@ public class CentralRideSharingSvc {
 				inputs[4]);
 
 		availableRides.add(offerRideDetails);
-		userRepository.get(inputs[0]).addOfferedRide();
+//		userRepository.get(inputs[0]).addOfferedRide();
 
 		System.out.println("Ride Addition Successfull !");
 	}
@@ -106,14 +107,14 @@ public class CentralRideSharingSvc {
 		String traveller = inputs[0];
 		String originLocation = inputs[1].split("=")[1];
 		String destinationLocation = inputs[2].split("=")[1];
-		Integer seats = Integer.parseInt(inputs[2].split("=")[1]);
-		String[] choice = inputs[3].split("=");
+		Integer requiredSeats = Integer.parseInt(inputs[3].split("=")[1]);
+		String[] choice = inputs[4].split("=");
 
 		OfferRideDetails currentAvailableRideForUser = null;
-		boolean isVehicleChoiceSelected = (choice[0].equals("Most Vacant")) ? false : true;
+		boolean isVehicleChoiceSelected = (choice[0].equals("MostVacant")) ? false : true;
 
 		for (OfferRideDetails rideDetails: availableRides) {
-			if (rideDetails.getSeats() >= seats
+			if (rideDetails.getSeats() >= requiredSeats
 					&& rideDetails.getDestinationLocation().equals(destinationLocation)
 						&& rideDetails.getOriginLocation().equals(originLocation)) {
 				if (isVehicleChoiceSelected) {
@@ -131,22 +132,24 @@ public class CentralRideSharingSvc {
 
 		if (Objects.nonNull(currentAvailableRideForUser)) {
 
-			currentAvailableRideForUser.removeSeats(seats);
+			currentAvailableRideForUser.removeSeats(requiredSeats);
 			if (currentAvailableRideForUser.getSeats() < 1) {
 				availableRides.remove(currentAvailableRideForUser);
 			}
 
 			TakenRideDetails takenRideDetails = new TakenRideDetails(
 					currentAvailableRideForUser.getUserName(),
-					traveller,originLocation,
+					traveller,
+					originLocation,
 					destinationLocation,
-					seats,
+					requiredSeats,
 					currentAvailableRideForUser.getVehicleName(),
 					currentAvailableRideForUser.getVehicleNumber());
 
 			currentOccuringRides.add(takenRideDetails);
 			String uniqueId = UUID.randomUUID().toString();
 			takenRideDetailsMap.put(uniqueId, takenRideDetails);
+			userRepository.get(takenRideDetails.getOwnerName()).addOfferedRide();
 			System.out.println("Ride Given with the id: " + uniqueId);
 		} else {
 			System.out.println("No Available Found for the User");
@@ -154,12 +157,18 @@ public class CentralRideSharingSvc {
 	}
 
 	public void endRide(String command) {
-		String[] inputs = getStrings(command);
-		if (!takenRideDetailsMap.containsKey(inputs[0])) {
-			System.out.println("No Ride for this User");
+		command = command.replaceAll("\\s", "");
+		command = command.substring(0, command.length()-3);
+		String[] result = command.split("”");
+		String input = result[1];
+
+		if (!takenRideDetailsMap.containsKey(input)) {
+			System.out.println("Invalid Id, No Ride for this Id !!");
 		}
 
-		TakenRideDetails takenRideDetails = takenRideDetailsMap.get(inputs[0]);
+		TakenRideDetails takenRideDetails = takenRideDetailsMap.get(input);
+
+		//Add RideTaken and RideOffered Data in the repository
 		userRepository.get(takenRideDetails.getTraveller()).incrementRideTaken();
 
 		currentOccuringRides.remove(takenRideDetails);
