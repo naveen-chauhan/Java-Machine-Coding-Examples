@@ -27,7 +27,9 @@ public class CentralRideSharingSvc {
 
 	private String[] getStrings(String command) {
 		command = command.replaceAll("\\s", "");
-		String[] inputs = command.split("\"")[1].split(",");
+		command = command.substring(0, command.length()-3);
+		String[] inputs = command.split("“")[1].split(",");
+
 		return inputs;
 	}
 
