@@ -15,7 +15,7 @@ public class MainDriverClass {
 		while (!input.equalsIgnoreCase("Exit")) {
 			input = scanner.nextLine();
 
-			String[] commands = input.split("(");
+			String[] commands = input.split("\\(");
 
 			switch (commands[0]) {
 				case "add_user":
