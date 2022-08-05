@@ -1,7 +1,7 @@
 package multilevel.cache.cache;
 
-import eviction.LFUEvictionPolicy;
-import models.KeyValueEntity;
+import multilevel.cache.eviction.LFUEvictionPolicy;
+import multilevel.cache.models.KeyValueEntity;
 
 import java.util.ArrayList;
 
