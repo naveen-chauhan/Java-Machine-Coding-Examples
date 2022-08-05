@@ -13,17 +13,15 @@ public class SplitWiseMainClass {
 
 		String command = "";
 		SplitWiseSvc splitWiseService = new SplitWiseSvc();
+
 		while (!command.equalsIgnoreCase("0")) {
 
 			command = scanner.nextLine();
-//			System.out.println(command);
 			String[] commandDetails = command.split(" ");
 
-//			System.out.println(Arrays.toString(commandDetails));
 
 			if (commandDetails.length == 1 && commandDetails[0].equals("SHOW")) {
 				splitWiseService.show();
-
 			} else if (commandDetails.length == 2 && commandDetails[0].equals("SHOW")) {
 				splitWiseService.show(commandDetails[1]);
 			} else if (commandDetails[0].equals("EXPENSE")) {

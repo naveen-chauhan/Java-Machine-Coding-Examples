@@ -17,12 +17,16 @@ public class ParkingLotManager {
 	}
 
 	public void display(String[] commands) {
-		if (commands[1].equals("free_count")) {
-			displayManager.displayFreeCount(parkingLot, commands);
-		} else if (commands[1].equals("free_slots")) {
-			displayManager.displayFreeSlots(parkingLot, commands);
-		} else if (commands[1].equals("occupied_slots")) {
-			displayManager.displayOccupiedSlots(parkingLot, commands);
+		switch (commands[1]) {
+			case "free_count":
+				displayManager.displayFreeCount(parkingLot, commands);
+				break;
+			case "free_slots":
+				displayManager.displayFreeSlots(parkingLot, commands);
+				break;
+			case "occupied_slots":
+				displayManager.displayOccupiedSlots(parkingLot, commands);
+				break;
 		}
 	}
 

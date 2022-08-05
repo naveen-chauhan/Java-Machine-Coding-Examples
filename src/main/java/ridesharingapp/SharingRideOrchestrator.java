@@ -12,11 +12,9 @@ public class SharingRideOrchestrator {
 		this.centralRideSharingSvc = new CentralRideSharingSvc();
 	}
 
-
 	public void registerUser(String command) {
 		centralRideSharingSvc.registerUser(command);
 	}
-
 
 	public void registerVehicle(String command) {
 		centralRideSharingSvc.registerVehicle(command);

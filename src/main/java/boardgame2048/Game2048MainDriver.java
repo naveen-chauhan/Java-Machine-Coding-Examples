@@ -16,18 +16,22 @@ public class Game2048MainDriver {
 		while (!input.equalsIgnoreCase("Exit")) {
 			input = scanner.nextLine();
 			switch (input) {
+				//0 - means move left
 				case "0":
 					boardGameSvc.moveLeft();
 					boardGameSvc.showBoard();
 					break;
+				//1 - means move right
 				case "1":
 					boardGameSvc.moveRight();
 					boardGameSvc.showBoard();
 					break;
+				//2 - means move Up
 				case "2":
 					boardGameSvc.moveTop();
 					boardGameSvc.showBoard();
 					break;
+				//3 - means move Down
 				case "3":
 					boardGameSvc.moveBottom();
 					boardGameSvc.showBoard();

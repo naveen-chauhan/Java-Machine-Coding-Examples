@@ -26,10 +26,15 @@ public class BoardGameSvc {
            Arrays.fill(tempBoard[i], "-");
         }
 
+		//Start the board with two 2s in the board
 		Random r = new Random();
 		int firstRandomXIndex = r.nextInt(4) % 4 + 1;
 		int firstRandomYIndex = r.nextInt(4) % 4 + 1;
+
+		//first
 		tempBoard[firstRandomXIndex][firstRandomYIndex] = "2";
+
+
 		int secondRandomXIndex = r.nextInt(4) % 4 + 1;
 		int secondRandomYIndex = r.nextInt(4) % 4 + 1;
 		while ((secondRandomYIndex == firstRandomYIndex && secondRandomXIndex == firstRandomXIndex)) {
@@ -37,6 +42,7 @@ public class BoardGameSvc {
 			secondRandomYIndex = r.nextInt(4) % 4 + 1;
 		}
 
+		//second
 		tempBoard[secondRandomXIndex][secondRandomYIndex] = "2";
 
 		return new BoardGameSvc(tempBoard);

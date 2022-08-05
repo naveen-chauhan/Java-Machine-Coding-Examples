@@ -1,6 +1,6 @@
 package trello.models;
 
-import trello.IdGenerator;
+import trello.processor.IdGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,17 +63,13 @@ public class Board {
 
     private String printMember(List<Member> membersList) {
         final String[] result = {""};
-        membersList.forEach(member -> {
-            result[0] = result[0] + member.toString();
-        });
+        membersList.forEach(member -> result[0] = result[0] + member.toString());
         return result[0];
     }
 
     private String printLists(List<Lists> listsArray) {
         final String[] result = {""};
-        listsArray.forEach(l -> {
-            result[0] = result[0] + l.toString();
-        });
+        listsArray.forEach(l -> result[0] = result[0] + l.toString());
         return result[0];
     }
 

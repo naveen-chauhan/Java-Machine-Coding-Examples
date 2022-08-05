@@ -7,17 +7,17 @@ import java.util.Arrays;
  */
 public class Player {
     private String userName;
-    private GameToken character;
+    private TicTacToken character;
 
     public String getUserName() {
         return userName;
     }
 
-    public GameToken getCharacter() {
+    public TicTacToken getCharacter() {
         return character;
     }
 
-    public Player(String userName, GameToken character) {
+    public Player(String userName, TicTacToken character) {
         this.userName = userName;
         this.character = character;
     }
@@ -29,13 +29,13 @@ public class Player {
         }
 
         boolean isValidEnum = Arrays
-                .stream(GameToken.values())
+                .stream(TicTacToken.values())
                 .anyMatch((token) ->
                         token.name().equals(playerDetails[0]));
 
         if (!isValidEnum) {
             return null;
         }
-        return new Player(playerDetails[1], GameToken.valueOf(playerDetails[0]));
+        return new Player(playerDetails[1], TicTacToken.valueOf(playerDetails[0]));
     }
 }

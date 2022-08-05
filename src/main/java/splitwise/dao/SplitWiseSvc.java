@@ -1,6 +1,5 @@
 package splitwise.dao;
 
-import splitwise.dao.ISplitWiseProcessor;
 import splitwise.model.SplitType;
 import splitwise.model.User;
 
@@ -53,7 +52,7 @@ public class SplitWiseSvc implements ISplitWiseProcessor {
 		int counter = 0;
 		String payerUserId = commands[1];
 		Integer totalAmount = Integer.valueOf(commands[2]);
-		Integer numberOfSplitPerson = Integer.valueOf(commands[3]);
+		int numberOfSplitPerson = Integer.parseInt(commands[3]);
 		counter = 4;
 		List<String> userIdsOfSplitPerson = new ArrayList<>();
 

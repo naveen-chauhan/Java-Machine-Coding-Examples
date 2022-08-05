@@ -45,34 +45,32 @@ public class RestaurantProvider {
 	}
 
 	public static String callApi(String url) throws RuntimeException {
-		ByteArrayOutputStream responseBodyBaos = null;
+		ByteArrayOutputStream responseBody = null;
 		Scanner httpResponseBodyScanner = null;
 		String response = "Empty";
 
 		try {
 
-			URL robotsUrl = new URL(url);
-			HttpURLConnection urlConnection = (HttpURLConnection) robotsUrl.openConnection();
+			URL callingUrl = new URL(url);
+			HttpURLConnection urlConnection = (HttpURLConnection) callingUrl.openConnection();
 
 			httpResponseBodyScanner = new Scanner(urlConnection.getInputStream());
 
 			// Use a ByteArrayOutputStream to store the contents of the HTTP response body
-			responseBodyBaos = new ByteArrayOutputStream();
+			responseBody = new ByteArrayOutputStream();
 			while (httpResponseBodyScanner.hasNextLine()) {
-				responseBodyBaos.write(httpResponseBodyScanner.nextLine().getBytes());
+				responseBody.write(httpResponseBodyScanner.nextLine().getBytes());
 			}
 
-			responseBodyBaos.close();
+			responseBody.close();
 			httpResponseBodyScanner.close();
-			response = responseBodyBaos.toString();
-		} catch (RuntimeException e) {
-			throw new RuntimeException(e);
+			response = responseBody.toString();
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		} finally {
-			if (responseBodyBaos != null) {
+			if (responseBody != null) {
 				try {
-					responseBodyBaos.close();
+					responseBody.close();
 				} catch (IOException ioe) {
 					System.out.println("Error while closing response body stream");
 				}

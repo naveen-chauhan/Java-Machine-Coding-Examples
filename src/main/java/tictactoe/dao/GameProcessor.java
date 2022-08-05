@@ -4,7 +4,7 @@ import tictactoe.models.Player;
 
 import java.util.Arrays;
 
-import static tictactoe.models.GameToken.X;
+import static tictactoe.models.TicTacToken.X;
 
 /**
  * @author naveen.chauhan on 14/07/22

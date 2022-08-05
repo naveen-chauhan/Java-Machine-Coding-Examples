@@ -41,7 +41,7 @@ public class TruecallerUser {
 	}
 
 	public void importContact(List<ContactDetails> userContactList) {
-		//Think about safeguarding from the duplicates
+		//Think about safeguarding against the duplicates
 		contactDetailsList.addAll(userContactList);
 		System.out.println("Blocked the Contact Numbers");
 	}

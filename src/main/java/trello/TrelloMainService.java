@@ -1,5 +1,7 @@
 package trello;
 
+import trello.processor.TrelloProcessor;
+
 import java.util.Scanner;
 
 /**

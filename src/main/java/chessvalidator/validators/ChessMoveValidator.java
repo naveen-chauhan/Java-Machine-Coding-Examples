@@ -20,41 +20,17 @@ public class ChessMoveValidator {
 
      switch (currentPiece.charAt(1)) {
          case 'R':
-             if (isRooksMoveAllowed(i1, j1, i2, j2)) {
-                 return true;
-             } else {
-                 return false;
-             }
+             return isRooksMoveAllowed(i1, j1, i2, j2);
          case 'N':
-             if (isKnightsMoveAllowed(i1, j1, i2, j2)) {
-                 return true;
-             } else {
-                 return false;
-             }
+             return isKnightsMoveAllowed(i1, j1, i2, j2);
          case 'B':
-             if (isBishopMoveAllowed(i1, j1, i2, j2)) {
-                 return true;
-             } else {
-                 return false;
-             }
+             return isBishopMoveAllowed(i1, j1, i2, j2);
          case 'Q':
-             if (isQueenMoveAllowed(i1, j1, i2, j2)) {
-                 return true;
-             } else {
-                 return false;
-             }
+             return isQueenMoveAllowed(i1, j1, i2, j2);
          case 'K':
-             if (isKnightMoveAllowed(i1, j1, i2, j2)) {
-                 return true;
-             } else {
-                 return false;
-             }
+             return isKnightMoveAllowed(i1, j1, i2, j2);
          case 'P':
-             if (isPawnMoveAllowed(chessBoard,i1, j1, i2, j2, currentPlayer)) {
-                 return true;
-             } else {
-                 return false;
-             }
+             return isPawnMoveAllowed(chessBoard, i1, j1, i2, j2, currentPlayer);
      }
 
      return true;
@@ -73,10 +49,12 @@ public class ChessMoveValidator {
     }
 
     private boolean isKnightsMoveAllowed(int i1, int j1, int i2, int j2) {
-       return  ((i1 -2 == i2 || i1 + 2 == i2) && j1 - 1 == j2) ||
-        ((i1 -2 == i2 || i1 + 2 == i2) && j1 + 1 == j2) ||
-        ((j1 -2 == j2 || j1 + 2 == j2) && i1 - 1 == i2) ||
-        ((j1 -2 == j2 || j1 + 2 == j2) && i1 + 1 == i2) ;
+       return
+               //8 Directions
+               ((i1 -2 == i2 || i1 + 2 == i2) && j1 - 1 == j2) ||
+                ((i1 -2 == i2 || i1 + 2 == i2) && j1 + 1 == j2) ||
+                ((j1 -2 == j2 || j1 + 2 == j2) && i1 - 1 == i2) ||
+                ((j1 -2 == j2 || j1 + 2 == j2) && i1 + 1 == i2) ;
     }
 
     private boolean isRooksMoveAllowed(int i1, int j1, int i2, int j2) {
@@ -84,6 +62,7 @@ public class ChessMoveValidator {
     }
 
     private boolean isPawnMoveAllowed(String[][] chessBoard, int i1, int j1, int i2, int j2, String currentPlayer) {
+      //If Next Slot not empty, Then Pawn needs to make cross Move else it can go only straight
       if (!chessBoard[i2][j2].equals("--")) {
         if (currentPlayer.equals("B")) {
             return (i1 + 1 == i2 && (j1 +1 == j2 || j1 - 1 == j2));
