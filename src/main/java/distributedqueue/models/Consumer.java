@@ -9,6 +9,7 @@ import java.util.List;
 public class Consumer {
    private String consumerId;
    private List<String> subscribedTopics;
+   //Todo: Since Topics are list we will need LastCommitted Offset as a list for each Subscribed Topics
    private Integer lastCommittedOffset;
 
 
@@ -32,11 +33,11 @@ public class Consumer {
 
    public String consume(Topic topic) {
 
-      if (topic.getTopic().size() <= lastCommittedOffset) {
+      if (topic.getTopicMessages().size() <= lastCommittedOffset) {
          System.out.println("No New Message to poll");
       }
 
-      String message = topic.getTopic().get(lastCommittedOffset);
+      String message = topic.getTopicMessages().get(lastCommittedOffset);
       this.lastCommittedOffset += 1;
       return message;
    }

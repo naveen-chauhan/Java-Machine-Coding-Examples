@@ -10,7 +10,8 @@ import java.util.Objects;
  * @author naveen.chauhan on 04/07/22
  */
 
-/*Multiple ways to maintain this implementations
+/**
+ * Multiple ways to maintain this implementations
 *   One each splitType as class implementing an interface
 *   Second - Enum implementing an interface each enum element implementing the interface methods */
 public enum SplitType implements IAmountCalculator {
@@ -64,7 +65,7 @@ public enum SplitType implements IAmountCalculator {
 		                                Map<String, User> userMap,
 		                                List<Double> splitDetailList) {
 
-			Double splitedAmount = Double.valueOf(totalAmount/userIdsOfSplitPerson.size());
+			Double splitedAmount = (double) (totalAmount / userIdsOfSplitPerson.size());
 
 			for (String userId: userIdsOfSplitPerson) {
 
@@ -80,9 +81,9 @@ public enum SplitType implements IAmountCalculator {
 
 	/*
 	 * Case 1: has not owned or already owner, in this case just add the amount
-	 * Case 2: reverse owning i,e who has paid had previosily owned the some amount, if currentSplit > ownedAmount
-	 *           user will ultimately owns the part else the viceversa
-	 * Case 3: payer is present in the splitPersonList, in this case we dont need to do anything
+	 * Case 2: reverse owning i,e who has paid had previously owned some amount, if currentSplit > ownedAmount
+	 *           user will ultimately own the part else the vice-versa
+	 * Case 3: payer is present in the splitPersonList, in this case we don't need to do anything
 	 * */
 
 	private static void addFinalAmountOnPersons(String payerUserId, Map<String, User> userMap, Double splitedAmount, String userId) {
