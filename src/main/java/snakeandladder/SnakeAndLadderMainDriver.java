@@ -1,7 +1,6 @@
 package snakeandladder;
 
 import snakeandladder.models.PlayerInfo;
-import snakeandladder.models.PositionEntity;
 import snakeandladder.processor.GameProcessor;
 
 import java.util.ArrayList;

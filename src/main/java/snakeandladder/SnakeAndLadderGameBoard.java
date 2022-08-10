@@ -3,12 +3,8 @@ package snakeandladder;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import snakeandladder.models.Item;
-import snakeandladder.models.PositionEntity;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Optional;
 
 /**
  * @author naveen.chauhan on 01/07/22
