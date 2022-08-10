@@ -86,7 +86,9 @@ public enum SplitType implements IAmountCalculator {
 	 * Case 3: payer is present in the splitPersonList, in this case we don't need to do anything
 	 * */
 
-	private static void addFinalAmountOnPersons(String payerUserId, Map<String, User> userMap, Double splitedAmount, String userId) {
+	private static void addFinalAmountOnPersons(String payerUserId,
+	                                            Map<String, User> userMap,
+	                                            Double splitedAmount, String userId) {
 		//In case user already owned
 		if (userMap.get(userId).getKhataBookMap().containsKey(getUserName(userMap, payerUserId))) {
 			Double currentOwnedAmount = userMap.get(userId).getKhataBookMap().get(getUserName(userMap, payerUserId));

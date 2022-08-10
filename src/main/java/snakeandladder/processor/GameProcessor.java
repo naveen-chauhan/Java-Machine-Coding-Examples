@@ -6,14 +6,16 @@ import snakeandladder.models.PlayerInfo;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Random;
 
 /**
  * @author naveen.chauhan on 01/07/22
  */
 public class GameProcessor {
+	private static final Random random = new Random();
 
-	public int getRandomNumber(int min, int max) {
-		return (int) ((Math.random() * (max - min)) + min);
+	public int getRandomNumber() {
+		return random.nextInt(6) + 1;
 	}
 
 
@@ -27,7 +29,7 @@ public class GameProcessor {
 		while (!isGameEnded(players)) {
 			currentPlayer = queueOfPlayer.poll();
 
-			int random_integer = getRandomNumber(1, 7);
+			int random_integer = getRandomNumber();
 
 
 			if (currentPlayer.getCurrentPosition() + random_integer > 100) {

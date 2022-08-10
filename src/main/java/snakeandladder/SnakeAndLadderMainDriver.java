@@ -20,26 +20,24 @@ public class SnakeAndLadderMainDriver {
 
 		numberOfSnake = scanner.nextInt();
 
-		while (numberOfSnake > 0) {
+		while (numberOfSnake-- > 0) {
 			int startPosition;
 			int endPosition;
 			startPosition = scanner.nextInt();
 			endPosition = scanner.nextInt();
 
-			gameBoard.getSnakePosition().add(new PositionEntity(startPosition, endPosition));
-			numberOfSnake--;
+			gameBoard.addSnake(startPosition, endPosition);
 		}
 
 		numberOfLadder = scanner.nextInt();
 
-		while (numberOfLadder > 0) {
+		while (numberOfLadder-- > 0) {
 			int startPosition;
 			int endPosition;
 			startPosition = scanner.nextInt();
 			endPosition = scanner.nextInt();
 
-			gameBoard.getLadderPosition().add(new PositionEntity(startPosition, endPosition));
-			numberOfLadder--;
+			gameBoard.addLadder(startPosition, endPosition);
 		}
 
 		int numberOfPlayer;
@@ -52,9 +50,9 @@ public class SnakeAndLadderMainDriver {
 		scanner.nextLine();
 
 		for (int i = 0; i < numberOfPlayer; i++) {
-			String nextString = scanner.nextLine();
-			System.out.println("Current Input: " + nextString);
-			players.add(new PlayerInfo(nextString));
+			String nameOfPlayer = scanner.nextLine();
+			System.out.println("Current Input: " + nameOfPlayer);
+			players.add(new PlayerInfo(nameOfPlayer));
 		}
 
 		GameProcessor gameProcessor = new GameProcessor();

@@ -4,7 +4,7 @@ package snakeandladder.models;
  * @author naveen.chauhan on 01/07/22
  */
 public class PlayerInfo {
-   private String name;
+   private final String name;
    private int currentPosition;
 
    public PlayerInfo(String name) {
