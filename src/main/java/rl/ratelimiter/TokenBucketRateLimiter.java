@@ -3,7 +3,7 @@ package rl.ratelimiter;
 /**
  * @author naveen.chauhan on 10/08/22
  */
-public class TokenBucketRateLimiter {
+public class TokenBucketRateLimiter implements IRateLimiter {
 
 	private long currentAvailableTokens;
 	private long lastRefillTimeStamp;
