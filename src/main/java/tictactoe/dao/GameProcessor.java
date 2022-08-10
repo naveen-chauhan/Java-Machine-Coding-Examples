@@ -11,8 +11,8 @@ import static tictactoe.models.TicTacToken.X;
  */
 public class GameProcessor implements IGameProcessor {
 
-	private Player playerOne;
-	private Player playerTwo;
+	private final Player playerOne;
+	private final Player playerTwo;
 	private Player currentPlayer;
 	private Character[][] ticTacBoard;
 
@@ -43,29 +43,32 @@ public class GameProcessor implements IGameProcessor {
 	}
 
 	private boolean isAnyPlayerWon() {
+
+		//row wise
 		for (int i = 1; i<ticTacBoard.length ; i++) {
 			if (ticTacBoard[i][1].equals(ticTacBoard[i][2]) && ticTacBoard[i][2].equals(ticTacBoard[i][3]) && isValidLiteral(ticTacBoard[i][1])){
 				return true;
 			}
 		}
 
+		//column wise
 		for (int j = 1; j<ticTacBoard.length ; j++) {
 			if (isValidLiteral(ticTacBoard[1][j]) && ticTacBoard[1][j].equals(ticTacBoard[2][j]) && ticTacBoard[2][j].equals(ticTacBoard[3][j])){
 				return true;
 			}
 		}
 
+		//First Diagonal
 		if (isValidLiteral(ticTacBoard[1][1]) && ticTacBoard[1][1].equals(ticTacBoard[2][2]) && ticTacBoard[2][2].equals(ticTacBoard[3][3])) {
 			return true;
 		}
 
+		//Second Diagonal
 		if (isValidLiteral(ticTacBoard[2][2]) && ticTacBoard[1][3].equals(ticTacBoard[2][2]) && ticTacBoard[2][2].equals(ticTacBoard[3][1])) {
 			return true;
 		}
 
 		return false;
-
-
 	}
 
 	private boolean isValidLiteral(Character character) {
