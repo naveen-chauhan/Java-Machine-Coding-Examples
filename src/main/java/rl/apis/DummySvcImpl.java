@@ -1,5 +1,6 @@
 package rl.apis;
 
+import rl.ratelimiter.FixedWindowRateLimiter;
 import rl.ratelimiter.TokenBucketRateLimiter;
 
 /**
@@ -8,10 +9,12 @@ import rl.ratelimiter.TokenBucketRateLimiter;
 public class DummySvcImpl implements IAPIInterface {
 
 	private final TokenBucketRateLimiter tokenBucketRateLimiter;
+	private final FixedWindowRateLimiter fixedWindowRateLimiter;
 
 	public DummySvcImpl() {
 		super();
 		this.tokenBucketRateLimiter = TokenBucketRateLimiter.getInstance(5, 2, 3);
+		this.fixedWindowRateLimiter = new FixedWindowRateLimiter();
 	}
 
 	@Override
@@ -23,7 +26,17 @@ public class DummySvcImpl implements IAPIInterface {
 			//end of api call
 		} else {
 			//throw //429 response or something else. Based how you have implemented
-			System.out.println("Too Many Requests, Rejecting.. please try again");
+			System.out.println("[TokenBucketRateLimiter]: Too Many Requests, Rejecting.. please try again");
+		}
+
+		//Now try FixedWindowToo
+
+		if (fixedWindowRateLimiter.rateLimit(0)) {
+			//if needed, then do something here
+			System.out.println("Hello, Mr Naveen");
+			//end of api call
+		} else {
+			System.out.println("[FixedWindowRateLimiter]: Too Many Requests, Rejecting.. please try again");
 		}
 
 	}
