@@ -8,7 +8,7 @@ import java.util.LinkedList;
 public class Snake {
 	//maintain the snake as linkedList
 
-	private LinkedList<Cell> snakeNodes;
+	private final LinkedList<Cell> snakeNodes;
 	private Cell head;
 
 	public Snake() {
@@ -31,12 +31,25 @@ public class Snake {
 	}
 
 	public Cell move(Cell nextFrontHead) {
+		//remove the last
 		Cell removedNode = snakeNodes.poll();
+		removedNode.setCellType(Cell.CellType.NONE);
+
+		//add new head
 		nextFrontHead.setCellType(Cell.CellType.SNAKE);
 		snakeNodes.add(nextFrontHead);
 		head = nextFrontHead;
-		removedNode.setCellType(Cell.CellType.NONE);
+
 		return removedNode;
+	}
+
+	public boolean checkCrash(Cell nextCell) {
+		for (Cell cell :snakeNodes) {
+			if (nextCell == cell) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 }

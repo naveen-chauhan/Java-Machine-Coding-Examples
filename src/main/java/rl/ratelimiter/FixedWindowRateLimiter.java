@@ -20,7 +20,7 @@ public class FixedWindowRateLimiter {
 	//we can implement without per userId, if we want to limit the overall api limit
 
 	/**
-	 * Each window will be present for couple of sec, then there will new window.
+	 * Each window will be present for a couple of sec, then there will new window.
 	 * And each window will have static Number of token
 	 */
 	private static final Duration WINDOW_SIZE_IN_SEC = Duration.ofSeconds(5);

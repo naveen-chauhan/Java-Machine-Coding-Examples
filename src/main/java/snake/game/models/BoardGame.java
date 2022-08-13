@@ -10,7 +10,7 @@ public class BoardGame {
 
 	private final Cell[][] board;
 
-	private Snake snake;
+	private final Snake snake;
 
 
 	public BoardGame(int rowSize, int colSize, Snake snake) {
@@ -44,10 +44,7 @@ public class BoardGame {
 		return true;
 	}
 
-	//update
-
-	//update
-
+	//update the game
 	private void update(int direction) {
 
 		int nextRowPosition = snake.getHead().getRowIndex();
@@ -70,7 +67,7 @@ public class BoardGame {
 				break;
 		}
 
-		if (checkCrash(board[nextRowPosition][nextColPosition])) {
+		if (snake.checkCrash(board[nextRowPosition][nextColPosition])) {
 			System.out.println("Game Over");
 			return;
 		}
@@ -79,16 +76,14 @@ public class BoardGame {
 		snake.move(board[nextRowPosition][nextColPosition]);
 		board[nextColPosition][nextColPosition].setCellType(Cell.CellType.SNAKE);
 
-	}
+		if (board[nextRowPosition][nextRowPosition].getCellType().equals(Cell.CellType.FOOD)) {
 
-	private boolean checkCrash(Cell nextCell) {
-		for (Cell cell : snake.getSnakeNodes()) {
-			if (nextCell == cell) {
-				return true;
-			}
+			//Todo: Here we have to add something i.e. how to grow the snake.
+			//snake.grow();
+
+			generateFood();
 		}
-		return false;
-	}
 
+	}
 
 }
