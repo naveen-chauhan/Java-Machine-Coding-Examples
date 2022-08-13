@@ -14,7 +14,7 @@ public class GameProcessor implements IGameProcessor {
 	private final Player playerOne;
 	private final Player playerTwo;
 	private Player currentPlayer;
-	private Character[][] ticTacBoard;
+	private final Character[][] ticTacBoard;
 
 	public GameProcessor(Player playerOne, Player playerTwo) {
 		this.playerOne = playerOne;
