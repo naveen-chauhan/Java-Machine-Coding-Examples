@@ -10,7 +10,7 @@ import distributedqueue.models.Topic;
  */
 public class DistributedQueueManager {
 
-	private DistributedQueue distributedQueue;
+	private final DistributedQueue distributedQueue;
 
 	public DistributedQueueManager() {
 		this.distributedQueue = new DistributedQueue();

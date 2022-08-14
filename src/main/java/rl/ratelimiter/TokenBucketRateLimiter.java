@@ -16,6 +16,7 @@ public class TokenBucketRateLimiter implements IRateLimiter {
 	private final long tokensToBeAddedPerSec;
 	private static TokenBucketRateLimiter tokenBucketRateLimiter;
 
+	//Step 1: Make the constructor private
 	private TokenBucketRateLimiter(long capacity, long fillingIntervalInSec, long noOfTokensToBeFilled) {
 		this.capacity = capacity;
 		this.fillingIntervalInSec = fillingIntervalInSec;
