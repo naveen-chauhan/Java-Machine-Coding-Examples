@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * @author naveen.chauhan on 15/07/22
  */
-public class ParkOrchestrator {
+public class ParkingGuard {
 
 	public void parkVehicle(ParkingLot parkingLot, String[] commands) {
 		String vehicleType = commands[1];

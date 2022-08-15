@@ -44,7 +44,7 @@ public class TokenBucketRateLimiter implements IRateLimiter {
 	}
 
 	/**
-	 * Made the consume() method synchronized to made it thread safe
+	 * consume() method synchronized to make it thread safe
 	 *  we need
 	 *   availableTokens
 	 *   lastTimeRefill

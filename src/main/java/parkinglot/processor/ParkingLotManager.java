@@ -6,14 +6,14 @@ import parkinglot.model.ParkingLot;
  * @author naveen.chauhan on 15/07/22
  */
 public class ParkingLotManager {
-	private DisplayManager displayManager;
-	private ParkOrchestrator parkOrchestrator;
-	private ParkingLot parkingLot;
+	private final DisplayManager displayManager;
+	private final ParkingGuard parkOrchestrator;
+	private final ParkingLot parkingLot;
 
 	public ParkingLotManager(String[] commands) {
 		this.parkingLot = new ParkingLot(commands[1], commands[2], commands[3]);
 		this.displayManager = new DisplayManager();
-		this.parkOrchestrator = new ParkOrchestrator();
+		this.parkOrchestrator = new ParkingGuard();
 	}
 
 	public void display(String[] commands) {

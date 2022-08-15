@@ -24,7 +24,7 @@ public class LibraryManager {
 		this.userManagementDepartment = new UserManagementDepartment();
 		this.bookToUserMap = new HashMap<>();
 		this.userIdToUserData = new HashMap<>();
-		System.out.println("Created library with "+ commands[1] + " racks");
+		System.out.println("Created library with " + commands[1] + " racks");
 	}
 
 
@@ -81,6 +81,6 @@ public class LibraryManager {
 		bookToUserMap.put(bookCopy.getBookCopyId(), libraryUser);
 		userIdToUserData.put(libraryUser.getUserId(), libraryUser);
 
-		System.out.println("Borrowed Book from rack: "+ j);
+		System.out.println("Borrowed Book from rack: " + j);
 	}
 }

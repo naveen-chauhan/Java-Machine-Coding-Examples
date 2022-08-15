@@ -15,7 +15,7 @@ public class TrelloMainService {
 		String input = "";
 		while (!input.equalsIgnoreCase("exit")) {
 			input = scanner.nextLine();
-			String arguments[] =  input.split(" ", 4);
+			String[] arguments =  input.split(" ", 4);
 
 			switch (arguments[0]) {
 				case "SHOW":

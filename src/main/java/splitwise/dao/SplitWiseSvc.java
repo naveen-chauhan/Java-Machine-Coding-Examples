@@ -10,7 +10,7 @@ import java.util.*;
  */
 public class SplitWiseSvc implements ISplitWiseProcessor {
 
-	private final Map<String , User> userMap;
+	private final Map<String, User> userMap;
 
 	public SplitWiseSvc() {
 		this.userMap = new HashMap<>();
@@ -56,11 +56,11 @@ public class SplitWiseSvc implements ISplitWiseProcessor {
 		counter = 4;
 		List<String> userIdsOfSplitPerson = new ArrayList<>();
 
-		for (int i = 0; i < numberOfSplitPerson ; i++) {
-			userIdsOfSplitPerson.add(commands[counter+i]);
+		for (int i = 0; i < numberOfSplitPerson; i++) {
+			userIdsOfSplitPerson.add(commands[counter + i]);
 
-			if (!userMap.containsKey(commands[counter+i])) {
-				userMap.put(commands[counter+i], new User(commands[counter+i]));
+			if (!userMap.containsKey(commands[counter + i])) {
+				userMap.put(commands[counter + i], new User(commands[counter + i]));
 			}
 		}
 
@@ -74,8 +74,8 @@ public class SplitWiseSvc implements ISplitWiseProcessor {
 
 		} else if (SplitType.EXACT.equals(splitType)) {
 			List<Double> splitAmount = new ArrayList<>();
-			for (int i = 0; i < numberOfSplitPerson ; i++) {
-				splitAmount.add(Double.valueOf(commands[counter+i]));
+			for (int i = 0; i < numberOfSplitPerson; i++) {
+				splitAmount.add(Double.valueOf(commands[counter + i]));
 			}
 
 			//Check valid or Not
@@ -87,10 +87,10 @@ public class SplitWiseSvc implements ISplitWiseProcessor {
 			splitType.calculateFinalSplit(payerUserId, totalAmount, userIdsOfSplitPerson, userMap, splitAmount);
 
 
-		} else  {
+		} else {
 			List<Double> splitPercentage = new ArrayList<>();
-			for (int i = 0; i < numberOfSplitPerson ; i++) {
-				splitPercentage.add(Double.valueOf(commands[counter+i]));
+			for (int i = 0; i < numberOfSplitPerson; i++) {
+				splitPercentage.add(Double.valueOf(commands[counter + i]));
 			}
 
 			//Check valid or Not
@@ -106,8 +106,8 @@ public class SplitWiseSvc implements ISplitWiseProcessor {
 	}
 
 	public boolean isSplitValid(Double totalAmount, List<Double> splitAmounts) {
-		Double totalSplitAmount =  0.0;
-		for (Double splitAmount: splitAmounts) {
+		Double totalSplitAmount = 0.0;
+		for (Double splitAmount : splitAmounts) {
 			totalSplitAmount = totalSplitAmount + splitAmount;
 		}
 

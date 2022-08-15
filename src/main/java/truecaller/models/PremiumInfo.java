@@ -11,7 +11,7 @@ import java.util.List;
 
 @Getter
 public class PremiumInfo {
-    private String planName;
+    private final String planName;
     private static final List<String> ALLOWED_PLANS = Arrays.asList("FREEMIUM", "PREMIUM_PLAN_A");
 
     public PremiumInfo(String planName) {

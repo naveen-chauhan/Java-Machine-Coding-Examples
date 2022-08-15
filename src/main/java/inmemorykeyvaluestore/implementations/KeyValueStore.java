@@ -33,13 +33,13 @@ public class KeyValueStore implements IKeyValueStore<String> {
 	@Override
 	public String search(String keyAttribute, String valueAttribute) {
 		StringBuilder result = new StringBuilder();
-		for (Map.Entry<String, HashMap<String, String>> entry: keyValueStore.entrySet()) {
+		for (Map.Entry<String, HashMap<String, String>> entry : keyValueStore.entrySet()) {
 			if (entry.getValue().containsKey(keyAttribute) && entry.getValue().get(keyAttribute).equals(valueAttribute)) {
 				result.append(entry.getKey()).append(",");
 			}
 		}
 
-		return result.length() == 0 ? result.toString() : result.substring(0, result.length()-1);
+		return result.length() == 0 ? result.toString() : result.substring(0, result.length() - 1);
 
 	}
 

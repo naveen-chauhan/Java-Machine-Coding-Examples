@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @author naveen.chauhan on 05/08/22
  */
 public class MultiLevelCache {
-	private int maxCacheLevel;
+	private final int maxCacheLevel;
 	ArrayList<KeyValueStore> cache;
 
 	private MultiLevelCache(int i, int[] maxCapacityAtEachLevel) {

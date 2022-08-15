@@ -19,25 +19,25 @@ public class ChessSvc {
 		this.chessMoveValidator = new ChessMoveValidator();
 	}
 
-    public static ChessSvc initiateBoard() {
+	public static ChessSvc initiateBoard() {
 		String[][] board = new String[9][9];
 		for (int i = 1; i < 9; i++) {
 			for (int j = 1; j < 9; j++) {
-				String playerIdentifer = (i < 3)? "B":"W";
+				String playerIdentifer = (i < 3) ? "B" : "W";
 				String pieceIdentifier = "-";
 				if (i == 1 || i == 8) {
-					pieceIdentifier = (j < 6)? CHESS_PIECES[j-1] : CHESS_PIECES[9 - j - 1];
-					board[i][j] = playerIdentifer+pieceIdentifier;
+					pieceIdentifier = (j < 6) ? CHESS_PIECES[j - 1] : CHESS_PIECES[9 - j - 1];
+					board[i][j] = playerIdentifer + pieceIdentifier;
 				} else if (i == 2 || i == 7) {
 					pieceIdentifier = CHESS_PIECES[5];
-					board[i][j] = playerIdentifer+pieceIdentifier;
+					board[i][j] = playerIdentifer + pieceIdentifier;
 				} else {
 					board[i][j] = "--";
 				}
 			}
 		}
 		return new ChessSvc(board);
-    }
+	}
 
 	public void printBoard() {
 		for (int i = 1; i < 9; i++) {
@@ -57,7 +57,7 @@ public class ChessSvc {
 		int i2 = 8 - Integer.parseInt(String.valueOf(nextPositionCoordinate.charAt(1))) + 1;
 
 		if (chessMoveValidator.validateMove(chessBoard, i1, j1, i2, j2, currentPlayer)) {
-			String piece = chessBoard[i1][j1] ;
+			String piece = chessBoard[i1][j1];
 			chessBoard[i1][j1] = "--";
 			chessBoard[i2][j2] = piece;
 			printBoard();

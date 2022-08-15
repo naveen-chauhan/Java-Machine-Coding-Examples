@@ -15,7 +15,7 @@ public class TrelloProcessor {
 	Map<String, Board> boardMap;
 	Map<String, Card> cardMap;
 	Map<String, Lists> listsMap;
-	private ShowSvc showSvc = new ShowSvc();
+	private final ShowSvc showSvc = new ShowSvc();
 
 	public TrelloProcessor() {
 		boardMap = new HashMap<>();

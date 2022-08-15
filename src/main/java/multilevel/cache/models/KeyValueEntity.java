@@ -9,6 +9,6 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public class KeyValueEntity {
-   String key;
-   String value;
+   private final String key;
+   private final String value;
 }

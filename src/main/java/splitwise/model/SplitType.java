@@ -12,8 +12,9 @@ import java.util.Objects;
 
 /**
  * Multiple ways to maintain this implementations
-*   One each splitType as class implementing an interface
-*   Second - Enum implementing an interface each enum element implementing the interface methods */
+ * One each splitType as class implementing an interface
+ * Second - Enum implementing an interface each enum element implementing the interface methods
+ */
 public enum SplitType implements IAmountCalculator {
 
 	PERCENT {
@@ -25,14 +26,13 @@ public enum SplitType implements IAmountCalculator {
 		                                List<Double> splitDetailList) {
 
 
-
 			for (int i = 0; i < splitDetailList.size(); i++) {
 				if (userIdsOfSplitPerson.get(i).equals(payerUserId)) {
 					continue;
 				}
 
 				Double percent = splitDetailList.get(i);
-				Double percentAmount = (percent/100) * totalAmount;
+				Double percentAmount = (percent / 100) * totalAmount;
 
 				addFinalAmountOnPersons(payerUserId, userMap, percentAmount, userIdsOfSplitPerson.get(i));
 			}
@@ -67,7 +67,7 @@ public enum SplitType implements IAmountCalculator {
 
 			Double splitedAmount = (double) (totalAmount / userIdsOfSplitPerson.size());
 
-			for (String userId: userIdsOfSplitPerson) {
+			for (String userId : userIdsOfSplitPerson) {
 
 				if (userId.equals(payerUserId)) {
 					continue;

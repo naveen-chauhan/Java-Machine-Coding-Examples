@@ -48,12 +48,12 @@ public class TruecallerUser {
 
 	public void blockNumber(String blockingContactNo) {
 		blockedContactList.add(blockingContactNo);
-		System.out.println("Blocked the " +  blockingContactNo + " Number");
+		System.out.println("Blocked the " + blockingContactNo + " Number");
 	}
 
 	public void unblockNumber(String contactNo) {
 		blockedContactList.remove(contactNo);
-		System.out.println("Removed the " +  contactNo + " Number from Blocking List");
+		System.out.println("Removed the " + contactNo + " Number from Blocking List");
 	}
 
 	public void upgradeToPremium() {
@@ -69,8 +69,8 @@ public class TruecallerUser {
 		} else if (searchBy.equalsIgnoreCase("Name")) {
 			Optional<ContactDetails> contactDetails =
 					contactDetailsList.stream()
-					.filter(contactDetails1 -> contactDetails1.getContactName().equals(identifier))
-					.findAny();
+							.filter(contactDetails1 -> contactDetails1.getContactName().equals(identifier))
+							.findAny();
 
 			return contactDetails.orElse(null);
 		} else {
@@ -85,6 +85,6 @@ public class TruecallerUser {
 	}
 
 	public void notifyCallingInfo(String callerName) {
-		System.out.println("Call from: " +  callerName);
+		System.out.println("Call from: " + callerName);
 	}
 }

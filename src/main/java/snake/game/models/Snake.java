@@ -1,6 +1,7 @@
 package snake.game.models;
 
 import java.util.LinkedList;
+import java.util.Objects;
 
 /**
  * @author naveen.chauhan on 10/08/22
@@ -33,7 +34,7 @@ public class Snake {
 	public Cell move(Cell nextFrontHead) {
 		//remove the last
 		Cell removedNode = snakeNodes.poll();
-		removedNode.setCellType(Cell.CellType.NONE);
+		Objects.requireNonNull(removedNode).setCellType(Cell.CellType.NONE);
 
 		//add new head
 		nextFrontHead.setCellType(Cell.CellType.SNAKE);

@@ -11,9 +11,9 @@ import java.util.Map;
  */
 public class GlobalSvc {
 	//PhoneNumber will store All.
-	private Map<String, TruecallerUser> truecallerUserMap;
+	private final Map<String, TruecallerUser> truecallerUserMap;
 	//Global Directory
-	private TruecallerGlobalDirectory truecallerGlobalDirectory;
+	private final TruecallerGlobalDirectory truecallerGlobalDirectory;
 
 
 	public GlobalSvc() {

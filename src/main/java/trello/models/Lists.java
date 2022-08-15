@@ -12,7 +12,7 @@ public class Lists {
 	private String id;
 	private final String boardId;
 	private String name;
-	private List<Card> cardList;
+	private final List<Card> cardList;
 
 	public void setId(String id) {
 		this.id = id;

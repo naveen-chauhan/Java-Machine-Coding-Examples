@@ -13,9 +13,9 @@ import java.util.Map;
 
 @Getter
 public class TruecallerGlobalDirectory {
-	private List<String> spamNumbers;
-	private Map<String, String> phoneNumberToUserName;
-	private List<ContactDetails> contactDetailsList;
+	private final List<String> spamNumbers;
+	private final Map<String, String> phoneNumberToUserName;
+	private final List<ContactDetails> contactDetailsList;
 
 	public TruecallerGlobalDirectory() {
 		spamNumbers = new ArrayList<>();

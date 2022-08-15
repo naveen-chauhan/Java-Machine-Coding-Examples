@@ -5,8 +5,8 @@ package trello.models;
  */
 public class Member {
 	private String name;
-	private String userId;
-	private String emails;
+	private final String userId;
+	private final String emails;
 
 	private static final String DEFAULT_NAME = "Naveen";
 

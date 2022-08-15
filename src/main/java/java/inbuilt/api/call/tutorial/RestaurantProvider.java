@@ -20,17 +20,17 @@ public class RestaurantProvider {
 
 	/**
 	 * Description of Problem -
-	 *          It calls an api to get All the restaurant in the city using 2 param - City, page
-	 *         The Api gives the response in the pagenated form. We have to get all the restaurant given in the pages
-	 *         We call the using two param - city and page
-	 *         Once we get the information, get all the restaurant in a list form if estimated_cost of that restaurant for 2 person is less than our budget given as 'maxcost'
+	 * It calls an api to get All the restaurant in the city using 2 param - City, page
+	 * The Api gives the response in the pagenated form. We have to get all the restaurant given in the pages
+	 * We call the using two param - city and page
+	 * Once we get the information, get all the restaurant in a list form if estimated_cost of that restaurant for 2 person is less than our budget given as 'maxcost'
 	 * <p>
-	 *  How -
-	 *      We used inbuilt java method to get the response in the string format
+	 * How -
+	 * We used inbuilt java method to get the response in the string format
 	 * <p>
-	 *      We have json-simple library to get the list of restaurant which was given as nested json format
+	 * We have json-simple library to get the list of restaurant which was given as nested json format
 	 * <p>
-	 *   */
+	 */
 
 	private static void addAllValidRestaurant(JSONArray jsonArray, int maxCost, List<String> restaurants) {
 		for (int i = 0; i < jsonArray.size(); i++) {
