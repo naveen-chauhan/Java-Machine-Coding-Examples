@@ -8,7 +8,7 @@ import java.util.Random;
  * @author naveen.chauhan on 18/07/22
  */
 public class BoardGameSvc {
-	private String[][] board;
+	private final String[][] board;
 
 	public String[][] getBoard() {
 		return board;

@@ -11,11 +11,11 @@ import java.util.Map;
  * @author naveen.chauhan on 17/07/22
  */
 public class LibraryManager {
-	private Library library;
-	private Map<String, LibraryUser> bookToUserMap;
-	private Map<String, LibraryUser> userIdToUserData;
-	private UserManagementDepartment userManagementDepartment;
-	private LibraryBookStoreDepartment libraryBookStoreDepartment;
+	private final Library library;
+	private final Map<String, LibraryUser> bookToUserMap;
+	private final Map<String, LibraryUser> userIdToUserData;
+	private final UserManagementDepartment userManagementDepartment;
+	private final LibraryBookStoreDepartment libraryBookStoreDepartment;
 
 
 	public LibraryManager(String[] commands) {

@@ -24,10 +24,10 @@ public class LibraryBookStoreDepartment {
 		List<String> publishers = new ArrayList<>(Arrays.asList(publisherList.split(",")));
 
 		ArrayList<Integer> bookedRackIds = new ArrayList<>();
-		for (int i = 0; i < bookCopyIdList.length; i++) {
+		for (String s : bookCopyIdList) {
 			for (int j = 0; j < library.getRack().length; j++) {
 				if (library.getRack()[j] == null) {
-					BookCopy bookCopy = new BookCopy(bookCopyIdList[i], bookId, title, authors, publishers);
+					BookCopy bookCopy = new BookCopy(s, bookId, title, authors, publishers);
 					library.getRack()[j] = bookCopy;
 					bookedRackIds.add(j + 1);
 					break;

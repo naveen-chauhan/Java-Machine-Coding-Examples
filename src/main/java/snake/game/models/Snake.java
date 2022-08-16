@@ -46,7 +46,7 @@ public class Snake {
 
 	public boolean checkCrash(Cell nextCell) {
 		for (Cell cell :snakeNodes) {
-			if (nextCell == cell) {
+			if (nextCell.equals(cell)) {
 				return true;
 			}
 		}

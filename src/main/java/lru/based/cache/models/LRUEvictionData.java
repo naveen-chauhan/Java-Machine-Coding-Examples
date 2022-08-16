@@ -4,8 +4,8 @@ package lru.based.cache.models;
  * @author naveen.chauhan on 22/07/22
  */
 public class LRUEvictionData {
-	String key;
-	int frequency;
+	private final String key;
+	private final int frequency;
 
 	public LRUEvictionData(String key, int freq) {
 		this.key = key;

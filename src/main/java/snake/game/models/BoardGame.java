@@ -38,10 +38,7 @@ public class BoardGame {
 	}
 
 	private boolean isFreeForFoodPlacement(int rowPosition, int colPosition) {
-		if (board[rowPosition][colPosition].getCellType().equals(Cell.CellType.SNAKE)) {
-			return false;
-		}
-		return true;
+		return !board[rowPosition][colPosition].getCellType().equals(Cell.CellType.SNAKE);
 	}
 
 	//update the game
